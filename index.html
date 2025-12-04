@@ -11,25 +11,61 @@
 </head>
 
 <body>
+    <header class="navbar header-bg gradient-bg pt-4 px-3">
+        <div class="container-fluid d-flex align-items-center">
+            <div class="d-flex align-items-center mb-3">
+                <figure class="me-3">
+                    <img src="assets/foto_perfil.jpg" class="rounded-circle avatar-img" alt="User">
+                </figure>
+                <div>
+                    <p class="m-0 text-xs">Bem vindo,</p>
+                    <h5 class="m-0 fw-bold display-6">Gabriel Santos</h5>
+                </div>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title logo display-6 fw-bold" id="offcanvasNavbarLabel">Orça<span>Pro</span>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body d-flex flex-column">
+                    <ul class="navbar-nav fs-5">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Movimentação</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Metas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Analise</a>
+                        </li>
+                    </ul>
+                    <div class="mt-auto d-flex flex-column">
+                        <a href="#" class="text-decoration-none fs-5 mb-3">
+                            <i class="bi bi-chat-dots"></i> Fale Conosco
+                        </a>
 
-    <header class="header-bg gradient-bg pt-4 px-3">
-        <div class="d-flex align-items-center mb-3">
-            <div class="me-3">
-                <img src="assets/foto_perfil.jpg" class="rounded-circle avatar-img" alt="User">
-            </div>
-            <div>
-                <p class="m-0 text-xs">Bem vindo,</p>
-                <h5 class="m-0 fw-bold display-6">Gabriel Santos</h5>
-            </div>
+                        <a href="#" class="btn btn-outline-danger" data-bs-dismiss="offcanvas">Sair</a>
+                    </div>
+                </div>
+            </nav>
         </div>
     </header>
-
     <main class="container pb-5">
 
         <section class="card shadow balance-card mb-4">
             <div class="card-body text-center p-4">
-                <p class="text-muted mb-1">Saldo</p>
-                <h2 class="fw-bold text-primary mb-4 display-6" style="color: var(--primary-purple) !important;">R$ 570,90</h2>
+                <p class="text-muted mb-1">Saldo Atual</p>
+                <h2 class="fw-bold text-primary mb-4 display-6" style="color: var(--cor-escura) !important;">R$
+                    570,90</h2>
 
                 <div class="row">
                     <div class="col-6 border-end">
@@ -83,7 +119,7 @@
                                         <h6 class="mb-0">Salário</h6>
                                     </div>
                                     <div class="text-end">
-                                        <p class="mb-0 text-xs text-muted">07/10</p>
+                                        <p class="mb-0 text-xs text-muted">04/12</p>
                                         <h6 class="mb-0 fw-bold">R$ 1650,00</h6>
                                     </div>
                                 </div>
@@ -96,7 +132,7 @@
                                         <h6 class="mb-0">Conta de Energia</h6>
                                     </div>
                                     <div class="text-end">
-                                        <p class="mb-0 text-xs text-muted">02/10</p>
+                                        <p class="mb-0 text-xs text-muted">02/12</p>
                                         <h6 class="mb-0 fw-bold">R$ 270,90</h6>
                                     </div>
                                 </div>
@@ -109,7 +145,7 @@
                                         <h6 class="mb-0">Dividendo MXRF11</h6>
                                     </div>
                                     <div class="text-end">
-                                        <p class="mb-0 text-xs text-muted">02/10</p>
+                                        <p class="mb-0 text-xs text-muted">02/12</p>
                                         <h6 class="mb-0 fw-bold">R$ 65,83</h6>
                                     </div>
                                 </div>
@@ -123,13 +159,14 @@
                     <article class="card shadow-sm border-0 p-3 mb-4 ">
                         <h3 class="text-muted mb-3 ps-1">Graficos</h3>
                         <p class="text-xs text-muted mb-3">Categorias de Despesas</p>
-                        <div class="d-flex justify-content-center position-relative mb-5" style="max-height: 350px;">
-                            <canvas id="graficoDespesas" ></canvas>
+                        <div class="d-flex justify-content-center position-relative mb-5 grafico"
+                            style="max-height: 350px;">
+                            <canvas id="graficoDespesas"></canvas>
                         </div>
 
-                        <p class="text-xs text-muted mb-3">Evolução do Ano</p>
-                        <div>
-                            <canvas id="lineChart"></canvas>
+                        <p class="text-xs text-muted mb-3 ">Evolução do Ano</p>
+                        <div class="grafico">
+                            <canvas id="graficoMovimentacao"></canvas>
                         </div>
                     </article>
                 </div>
@@ -152,9 +189,9 @@
                     data: [45.5, 27.3, 18.2, 9.1],
                     backgroundColor: [
                         '#3c166d',
-                        '#a31baf', 
-                        '#c72fd4', 
-                        '#c084fc'  
+                        '#a31baf',
+                        '#c72fd4',
+                        '#c084fc'
                     ],
                     borderWidth: 2,
                     hoverOffset: 4
@@ -172,15 +209,15 @@
         });
 
         // Configuração do Gráfico de Linha
-        const ctxLine = document.getElementById('lineChart').getContext('2d');
+        const ctxLine = document.getElementById('graficoMovimentacao').getContext('2d');
         new Chart(ctxLine, {
             type: 'line',
             data: {
-                labels: ['Jan','Fev', 'Mar', 'Jun', 'Jul', 'Agos', 'Set', 'Out','Nov'],
+                labels: ['Jan', 'Fev', 'Mar', 'Jun', 'Jul', 'Agos', 'Set', 'Out', 'Nov'],
                 datasets: [
                     {
                         label: 'Entradas',
-                        data: [1700, 1800, 1800, 1800, 1750, 1890, 1890,1820,1775],
+                        data: [1700, 1800, 1800, 1800, 1750, 1890, 1890, 1820, 1775],
                         borderColor: '#06c54f', // Verde Bootstrap
                         backgroundColor: '#06c54f',
                         tension: 0, // Linhas retas
@@ -189,8 +226,8 @@
                     },
                     {
                         label: 'Despesas',
-                        data: [1800, 1300, 2000, 1450, 1900, 1750, 1319,1870,1540],
-                        borderColor: '#e70f0f', // Vermelho Bootstrap
+                        data: [1800, 1300, 2000, 1450, 1900, 1750, 1319, 1870, 1540],
+                        borderColor: '#e70f0f',
                         backgroundColor: '#e70f0f',
                         tension: 0,
                         pointRadius: 4,

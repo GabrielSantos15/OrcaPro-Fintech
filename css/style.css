@@ -1,26 +1,35 @@
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
  :root {
-     --primary-purple: #9333ea;
-     --light-purple: #a855f7;
-     --bg-gray: #f3f4f6;
+     --cor-escura: #7904EB;
+     --cor-clara: #A763E9;
  }
 
  body {
-     background-color: var(--bg-gray);
-     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     background-color: #f3f4f6;
+     font-family: "Poppins", sans-serif;
  }
 
  .header-bg {
      padding-bottom: 50px;
      border-radius: 0 0 3vw 3vw;
      color: white;
-    }
-    
-.gradient-bg{
-     background: linear-gradient(235deg, #c084fc, #3c166d );
+ }
+
+ .gradient-bg {
+     background: linear-gradient(235deg, #c084fc, #3c166d);
+ }
+
+ .logo {
+     color: var(--cor-escura);
+ }
+
+ .logo span {
+     color: var(--cor-clara);
  }
 
  .avatar-img {
-    min-width: 75px;
+     min-width: 75px;
      width: 10vw;
      max-width: 100px;
      object-fit: cover;
@@ -57,6 +66,10 @@
      margin-bottom: 5px;
  }
 
+ .active {
+     font-weight: bold;
+     color: var(--cor-escura) !important;
+ }
 
  .transacao::before {
      content: "";
@@ -64,7 +77,7 @@
      width: 5px;
      height: 75%;
      position: absolute;
-     background-color: var(--light-purple);
+     background-color: var(--cor-clara);
      border-radius: 3px;
      left: 0;
      top: 50%;
@@ -78,4 +91,11 @@
 
  .mov-saida::before {
      background-color: #e70f0f;
+ }
+
+ .grafico {
+     width: 100%;
+     background-color: #f5f5f5;
+     border-radius: 15px;
+     padding: 10px;
  }
